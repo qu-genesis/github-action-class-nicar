@@ -2,6 +2,11 @@ name: First Scraper
 
 on:
   workflow_dispatch:
+    inputs:
+      state:
+        description: 'U.S. state to scrape'
+        required: true
+        default: 'ia'
   schedule:
   - cron: "0 0 * * *"
 
@@ -25,7 +30,7 @@ jobs:
         run: pip install warn-scraper
 
       - name: Scrape
-        run: warn-scraper ia --data-dir ./data/
+        run: warn-scraper ${{ inputs.state }} --data-dir ./data/
 
       - name: Commit and push
         run: |

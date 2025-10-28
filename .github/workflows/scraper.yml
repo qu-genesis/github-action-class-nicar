@@ -7,8 +7,8 @@ on:
         description: 'U.S. state to scrape'
         required: true
         default: 'ia'
-  schedule:
-  - cron: "0 0 * * *"
+  # schedule:
+  # - cron: "0 0 * * *"
 
 permissions:
   contents: write
